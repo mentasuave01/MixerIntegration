@@ -1,7 +1,7 @@
 ﻿{
   "$schema": "https://raw.githubusercontent.com/nike4613/ModSaber-MetadataFileSchema/master/Schema.json",
   "author": "Skriglitz",
-  "description": "",
+  "description": "#![MixerIntegration.About.md]",
   "gameVersion": "1.1.0p1",
   "id": MixerIntegration,
   "name": "MixerIntegration",
