@@ -8,20 +8,15 @@ namespace MixerIntegration
 {
     public class Plugin : IBeatSaberPlugin
     {
-        internal static Ref<PluginConfig> config;
-        internal static IConfigProvider configProvider;
+        public static readonly string ModuleName = "MixerSaber";
+        public string Name => ModuleName;
+        public string Version => "1.0.0";
 
-        public void Init(IPALogger logger, [Config.Prefer("json")] IConfigProvider cfgProvider)
+        public static Plugin Instance { get; private set; }
+
+        public void Init(object ignored, IPALogger logger)
         {
             Logger.log = logger;
-            configProvider = cfgProvider;
-
-            config = cfgProvider.MakeLink<PluginConfig>((p, v) =>
-            {
-                if (v.Value == null || v.Value.RegenerateConfig)
-                    p.Store(v.Value = new PluginConfig() { RegenerateConfig = false });
-                config = v;
-            });
         }
 
         public void OnApplicationStart()
